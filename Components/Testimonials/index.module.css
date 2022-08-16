@@ -1,0 +1,11 @@
+.spn {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid;
+}
+
+.box {
+  padding: 47px 27px;
+}
