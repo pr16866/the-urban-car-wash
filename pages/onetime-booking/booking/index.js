@@ -44,9 +44,9 @@ const Booking = () => {
     }
   };
 
-  useEffect(()=>{
-    console.log(bookingDetails)
-  },[bookingDetails])
+  // useEffect(()=>{
+  //   console.log(bookingDetails)
+  // },[bookingDetails])
 
   useEffect(() => {
     setBookingDetails({

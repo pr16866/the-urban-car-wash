@@ -38,7 +38,7 @@ export function AppWrapper({ children }) {
     setBookingDetails({ ...bookingstarted, ...location });
   }, [bookingstarted, location, modelStatus]);
 
-
+  // console.log(newUser);
   return (
     <AppContext.Provider
       value={{

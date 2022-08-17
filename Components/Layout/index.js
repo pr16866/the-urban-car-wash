@@ -9,30 +9,35 @@ import { auth, db } from '../Config/Firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { Timestamp } from "firebase/firestore";
 import { async } from '@firebase/util';
+import { addUserOnDb } from '../Utils/api';
 
 function Layout({ children }) {
   
   const { setAuthenticated, authenticated, newUser, setnewUser } = useAppContext();
 
-  const [existsData,setExistsData] = useState(true);
+  const [existsData, setExistsData] = useState(true);
+  
+  // console.log(newUser);
 
   useEffect(() => {
     if (newUser && authenticated) {
+      
+
       addNewUser();
     }
-  }, [authenticated]);
-
+  }, [authenticated, newUser]);
 
   const getData = async (userUid) => {
     let response = await getDoc(doc(db, "users", userUid));
     if (response.exists()) {
-      setExistsData( true);
+      setExistsData(true);
     } else {
-      setExistsData( false);
+      setExistsData(false);
     }
   }
+  
 
-  const addNewUser = async () => { 
+  const addNewUser = async () => {
     getData(authenticated.uid);
     if (!existsData) {
       let data = {
@@ -40,12 +45,13 @@ function Layout({ children }) {
         [newUser]: authenticated[newUser],
         uid: authenticated.uid,
         timestamp: Timestamp.now()
-    };
+      };
       let response = await setDoc(doc(db, "users", authenticated.uid), data);
     }
     setnewUser(false);
     setExistsData(true);
   }
+
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {

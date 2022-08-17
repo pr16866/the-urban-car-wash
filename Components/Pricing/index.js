@@ -9,7 +9,7 @@ function Pricing(){
 
   const getPlansFn = async () =>{
     let data = await getAllPlans()
-    console.log(data)
+    // console.log(data)
   }
 
   useEffect(()=>{

@@ -4,12 +4,12 @@ import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyALLF_E0kh-Mi-3pI8EuWiMSHtW3W3kyWM",
-  authDomain: "urban-car-wash.firebaseapp.com",
-  projectId: "urban-car-wash",
-  storageBucket: "urban-car-wash.appspot.com",
-  messagingSenderId: "497078328524",
-  appId: "1:497078328524:web:0d13022e9a257305453669"
+  apiKey: "AIzaSyCeU8bFMDGiTQDhiWgQMWjph_AeqyHW0o4",
+  authDomain: "the-urbarn-car-wash.firebaseapp.com",
+  projectId: "the-urbarn-car-wash",
+  storageBucket: "the-urbarn-car-wash.appspot.com",
+  messagingSenderId: "724207947135",
+  appId: "1:724207947135:web:c1d7a931fd66c8be155e4a"
 };
 
 

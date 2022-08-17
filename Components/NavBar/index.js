@@ -52,7 +52,7 @@ function NavBar() {
   const comingSoonToaster = () => {
     toast.info("Coming soon...")
   }
-
+  // console.log(authenticated);
 
   return (
     <div className="main ">
@@ -96,23 +96,23 @@ function NavBar() {
               Logout
               </button>
             ) : (
-              ""
-              // <>
-              //     <Link href={routing.LOGIN.toString()}>
-              //       <button
-              //         className={login}
-              //         style={{ background: "white", fontWeight: "600" }}>
-              //         Login
-              //       </button>
-              //     </Link>  
-              //     <Link href={routing.SIGNUP.toString()}>
-              //   <button
-              //     className={logout}
-              //     style={{ background: "#FFC044", fontWeight: "600" }}>
-              //     Sign up
-              //   </button>
-              //     </Link>
-              // </>
+        
+              <>
+                  <Link href={routing.LOGIN.toString()}>
+                    <button
+                      className={login}
+                      style={{ background: "white", fontWeight: "600" }}>
+                      Login
+                    </button>
+                  </Link>  
+                  <Link href={routing.SIGNUP.toString()}>
+                <button
+                  className={logout}
+                  style={{ background: "#FFC044", fontWeight: "600" }}>
+                  Sign up
+                </button>
+                  </Link>
+              </>
             )}
           </div>
         </div>

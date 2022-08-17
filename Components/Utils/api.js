@@ -7,12 +7,19 @@ const modelName = {
   SUBSCRIPTION_BOOKING: "subscription_wash",
   ADD_ON: "addon",
   PLANS:"plans",
-  PIN_CODES: "pincode"
+  PIN_CODES: "pincode",
+  USER:"user"
 };
 
 
-const { ONE_TIME_BOOKING, SUBSCRIPTION_BOOKING, ADD_ON, PLANS, PIN_CODES } = modelName;
+const { ONE_TIME_BOOKING, SUBSCRIPTION_BOOKING, ADD_ON, PLANS, PIN_CODES, USER } = modelName;
 
+export const addUserOnDb = async(uid,data) => {
+  return await addDoc(collection(db, USER,uid), data);
+}
+export const getAllUser = async(uid) => {
+  return await addDoc(collection(db, USER,uid), data);
+}
 
 export const saveDetails = async (data, authenticated) => {
   data = { ...data, timestamp: Timestamp.now(), userUid: authenticated.uid, orderNo: Math.round((new Date()).getTime() / 1000) };

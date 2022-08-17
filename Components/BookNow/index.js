@@ -30,9 +30,9 @@ function BookNow() {
     setBookingstarted({ ...bookingstarted, [e.target.name]: e.target.value });
   };
 
-  useEffect(()=>{
-    console.log(bookingstarted)
-  },[bookingstarted])
+  // useEffect(()=>{
+  //   console.log(bookingstarted)
+  // },[bookingstarted])
  
   const getStarted = () => {
     if (!(modelStatus === modalConfig.BOOKNOW_STARTED)) {

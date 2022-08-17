@@ -4,9 +4,11 @@ import { toast } from 'react-toastify';
 import Router from 'next/router'
 import { routing } from '../../../Components/Config/Routing';
 import { useAppContext } from '../../../Components/ContextApi';
+// import { useAppContext } from '../../../Components/ContextApi';
+// import { confirmationResult, confirm } from 'firebase/firestore';
 
 function Otp_verification() {
-  const { authenticated, setnewUser } = useAppContext();
+  const { authenticated, setnewUser, newUser } = useAppContext();
   const [otp, setOtp] = useState( "" );
   const [otpError, setotpError] = useState( false );
 
@@ -17,11 +19,13 @@ function Otp_verification() {
   const verifyOtp = async () => {
     toast.info( "Verifying OTP" );
     const code = otp;
+    // console.log(code);
     confirmationResult.confirm( code ).then( ( result ) =>
     {
       Router.push( routing.CONFIRM_LOCATION );
       const user = result.user;
-      setnewUser( "phoneNumber" );
+   
+      setnewUser( "phoneNumber");  
       setotpError( false );
     } ).catch( ( error ) =>
     {
@@ -29,7 +33,7 @@ function Otp_verification() {
       toast.error( "OTP is invalid" );
     } );
   }
-
+  
   return (
     <>
       <Layout>
