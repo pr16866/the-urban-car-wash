@@ -61,7 +61,7 @@ const Booking = () => {
       price +=parseInt( item.price);
     })
     setaddOnPrice(price);
-  }, [vehicleNo, timeSlot, caddOn]);
+  }, [vehicleNo, timeSlot, caddOn, totalPrice]);
 
   
   const payNow = async () => {
