@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PriceCard from "./PricingCard";
 import { useAppContext } from "../ContextApi/index";
 import { getAllPlans } from "../Utils/api";
@@ -6,10 +6,10 @@ import { getAllPlans } from "../Utils/api";
 function Pricing(){
   const { bookingstarted } = useAppContext()
   let arr = [1, 1, 1, 1]
-
+const[plansData,setPlansData]=useState([]);
   const getPlansFn = async () =>{
     let data = await getAllPlans()
-    // console.log(data)
+    setPlansData(data)
   }
 
   useEffect(()=>{
@@ -32,11 +32,11 @@ function Pricing(){
         <img src="./1588 1.png" alt="" className="md:w-[802px] md:h-[210px] m-auto md:mt-[40px] mt-[20px] w-[431px] h-[113px]" />
       </div>
       <div className={`flex items-center justify-center mt-12 flex-wrap md:gap-9 gap-5 `}>
-        {arr.map( ( item, index ) =>
+        {plansData?.map( ( item, index ) =>
         {
           return (
             <div key={index} className="contents">
-              <PriceCard props={{ border: "2px solid #FFC044" }} key={index} />
+              <PriceCard props={{ border: "2px solid #FFC044",item:item }} key={index} />
             </div>
           )
         })}
