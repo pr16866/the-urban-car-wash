@@ -11,7 +11,7 @@ const[plansData,setPlansData]=useState([]);
     let data = await getAllPlans()
     setPlansData(data)
   }
-
+console.log("Piyuuysdh")
   useEffect(()=>{
     getPlansFn()
   },[])
